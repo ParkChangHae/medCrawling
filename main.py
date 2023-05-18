@@ -243,7 +243,7 @@ def crawling_qna(teacher_info_dict):
                 current_teacher_dict = teacher_info_dict[site_name][subject][teacher_name]
                 original_qna_url = current_teacher_dict['url']
 
-                for i in range(85, 9999999):
+                for i in range(1, 9999999):
                     try:
                         print("i : " + str(i))
                         retries = 0
