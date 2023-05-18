@@ -1,0 +1,119 @@
+<html lang="ko"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta property="og:title"		content="대성마이맥" /> -->
+<!-- <meta property="og:description"	content="압도적인 강사 라인업! 내신부터 수능까지 빠짐없는 콘텐츠! 역대급 구매 혜택까지! 2023 대성올패스" /> -->
+<!-- <meta property="og:type"		content="website" /> -->
+<!-- <meta property="og:url"			content="http://www.mimacstudy.com/" /> -->
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<title>대성마이맥 마이맥선생님 &gt; 학습 Q&amp;A</title>
+<meta name="description" content="2024 대성패스! 강력한 강사 라인업! 전 강좌 무제한 수강에 100% 환급까지! 수능/내신은 대성패스로 ALL 커버!">
+ <link rel="shortcut icon" href="https://img.mimacstudy.com/FRONT/icon/favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://img.mimacstudy.com/FRONT/css/daesung.css?v1">
+<link rel="stylesheet" type="text/css" href="https://img.mimacstudy.com/FRONT/css/daesung2.css">
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/js/page_util.js"></script>
+<script type="text/javascript" src="/js/jqwidgets/jqxcore.js"></script>
+<script type="text/javascript" src="/js/jqwidgets/jqxscrollview.js"></script>
+<script type="text/javascript" src="/js/jssor.js"></script>
+<script type="text/javascript" src="/js/jssor.slider.js"></script>
+<script type="text/javascript" src="/js/placeholders.min.js"></script>
+<script type="text/javascript" src="/js/zoneplayer/js/app/app.js?171114"></script>
+<script type="text/javascript" src="/js/common_bnr.js"></script>
+<link rel="stylesheet" type="text/css" href="https://img.mimacstudy.com/FRONT/css/common.css?v221117">
+<script type="text/javascript" src="/js/jquery.touchFlow.js"></script>
+<script type="text/javascript" src="/js/jquery.event.drag-1.5.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(event){
+		$("ul.leftmenu>li").click(function() {
+			var liName = $(this).attr("name") == undefined ? "" : $(this).attr("name");
+
+			if(liName == "relmLi") return;
+
+	       	if ($(this).hasClass("open")){
+	          		$(this).removeClass("open").addClass("close");
+	          		//$(this).parent().addClass("open");
+	        	}else if ($(this).hasClass("close")){
+	          		$(this).removeClass("close").addClass("open");
+	          		//$(this).parent().removeClass();
+	        	}
+	     	});
+
+	  	$("ul.leftmenu>li").each(function(event){
+	      		if ($(this).hasClass("close")){
+	        			$(this).parent().addClass("open");
+	      		}
+	    		});
+
+	  //스카이배너 가져오기
+		if("531"){
+			getSkyBnr_renew('M011','tcd',  "531");
+	 	}else{
+	 		 getSkyBnr_renew('M002','',"531");
+		  	}
+
+				// 스카이배너 가져오기
+				/*getSkyBnr(M002, "531");
+			  	var skyData = {
+			  			  type : "531" != "" ? "tcd" : ""  //tcd가 있으면 선생님별 스카이배너
+			  			, relm : "03"
+			  			, tcd  : "531"
+			  			, subj : ""
+			  			, skyBanrDstin : "531" != "" ? "" : "M002"  //마이맥선생님영역 스카이배너
+			  	};
+
+			  	// 스카이배너 가져오기
+				$.ajax({
+					type : "POST" ,
+				    async: false,
+					url : "/common/getSkyBannerList.ds",
+					data : skyData,
+					dataType : "json" ,
+					success : function(data) {
+						if(data.code == "success") {
+							var id = "";
+							var rid = [];
+							var hid = [];
+							var htmlCode = '';
+							var htmlFirstCode = '';
+							$(data.data).each(function(i, data) {
+								var banrId		 	= data.banrId;
+								var imgName 	 	= data.imgName;
+								var upldImgName 	= data.upldImgName;
+								var imgPath 	 	= data.imgPath;
+								var linkInfo	 	= data.linkInfo;
+								var newWinYn 		= data.newWinYn;
+								var skyBanrType		= data.skyBanrType;
+								var banrHegt		= data.banrHegt;
+								var banrLinkType		= data.banrLinkType;
+								var linkMid		= data.linkMid;
+
+								if(skyBanrType == "02"){
+									if(id != banrId){
+										if(i > 0) {
+											htmlCode += '</div></div>'
+											htmlCode += '</ul>';
+										}
+										htmlCode += '<ul id="rolling_'+banrId+'" style="background-color:white;">';
+										htmlCode += '<div id="scroll_'+banrId+'" style="position: relative; top: 0px; left: 0px; width: 113px; height: 166px; overflow: hidden;">';
+										htmlCode += '<div u="slides" style="position: absolute; left: 0px; top: 0px; width: 113px; height: 166px; overflow: hidden;">';
+										rid.push(banrId);
+										hid.push(banrHegt);
+									}
+								} else {
+									if(i > 0) {
+										htmlCode += '</ul>';
+									}
+									htmlCode += '<ul>';
+								}
+								if(skyBanrType == "02"){
+									htmlCode += '<div><a  onclick="openSkyBannerLink(\'' + linkInfo + '\', \'' + banrId + '\', \'' + newWinYn + '\', \'' + banrLinkType + '\', \'' + linkMid + '\');return false;"><img u=image src="https://img.mimacstudy.com' + imgPath + '/' + imgName + '" style="cursor:pointer;" /></a></div>';
+								} else {
+									htmlCode += '<li><a  onclick="openSkyBannerLink(\'' + linkInfo + '\', \'' + banrId + '\', \'' + newWinYn + '\', \'' + banrLinkType + '\', \'' + linkMid + '\');return false;"><img src="https://img.mimacstudy.com' + imgPath + '/' + imgName + '" style="cursor:pointer;" /></a></li>';
+								}
+								id = banrId;
+							});
+							htmlCode += '</ul>';
+							$("</script></head><body></body></html>
