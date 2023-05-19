@@ -1,0 +1,6 @@
+strptime() argument 1 must be str, not datetime.datetimeTraceback (most recent call last):
+  File "C:/Users/sdij/PycharmProjects/medCrawling/main.py", line 301, in get_data
+    save_to_dict(current_teacher_dict, date, status)
+  File "C:/Users/sdij/PycharmProjects/medCrawling/main.py", line 226, in save_to_dict
+    current_teacher_dict['end_date'] = datetime.strptime(date, "%Y-%m-%d")
+TypeError: strptime() argument 1 must be str, not datetime.datetime
